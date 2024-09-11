@@ -49,12 +49,11 @@ RUN microdnf install -y gzip shadow-utils tar && \
     groupadd --gid 1000 -r rhtap-cli && \
     useradd -r -d /rhtap-cli -g rhtap-cli -s /sbin/nologin --uid 1000 rhtap-cli && \
     ARCH=$(uname -m) && \
+    KUBECTL_VERSION=$(curl -sL https://dl.k8s.io/release/stable.txt) && \
     if [ "$ARCH" = "x86_64" ]; then \
-        curl --proto "=https" --tlsv1.2 -sSf -L -O "https://dl.k8s.io/release/ \
-            $(curl -sL https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"; \
+        curl --proto "=https" --tlsv1.2 -sSf -L -O "https://dl.k8s.io/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl"; \
     elif [ "$ARCH" = "aarch64" ]; then \
-        curl --proto "=https" --tlsv1.2 -sSf -L -O "https://dl.k8s.io/release/$ \
-            (curl -sL https://dl.k8s.io/release/stable.txt)/bin/linux/arm64/kubectl"; \
+        curl --proto "=https" --tlsv1.2 -sSf -L -O "https://dl.k8s.io/release/${KUBECTL_VERSION}/bin/linux/arm64/kubectl"; \
     fi && \
     chmod +x kubectl && \
     mv kubectl /usr/bin/kubectl && \
