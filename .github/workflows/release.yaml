@@ -25,5 +25,6 @@ jobs:
       - name: GitHub Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
         run: |
           make github-release IMAGE_NAMESPACE="${{ github.repository_owner }}"
