@@ -26,7 +26,7 @@ IMAGE_REPO_PASSWORD ?=
 # default registry.
 IMAGE_REPO ?= ghcr.io
 # Container image namespace, usually the organization or user name.
-IMAGE_NAMESPACE ?= redhat-appstudio
+IMAGE_NAMESPACE ?= ${GITHUB_REPOSITORY_OWNER:-redhat-appstudio}
 # Container image tag.
 IMAGE_TAG ?= latest
 # Fully qualified container image name.
