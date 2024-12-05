@@ -15,8 +15,7 @@ inputs:
     default: ${{ github.actor }}
   IMAGE_REPO_PASSWORD:
     description: Makefile's IMAGE_REPO_PASSWORD variable
-    required: false
-    default: ${{ secrets.GITHUB_TOKEN }}
+    required: true
   tags:
     description: Comma-separated list of tags to apply to the image
     required: false
