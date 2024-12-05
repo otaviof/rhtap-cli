@@ -20,9 +20,11 @@ jobs:
         uses: ./.github/actions/buildah
         with:
           tags: "latest,${{ github.ref }}"
+          IMAGE_REPO_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
 
       - name: GitHub Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
         run: |
           make github-release

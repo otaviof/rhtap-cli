@@ -18,7 +18,6 @@ CGO_LDFLAGS ?=
 GITHUB_REF_NAME ?= ${GITHUB_REF_NAME:-}
 GITHUB_TOKEN ?= ${GITHUB_TOKEN:-}
 
-
 # Container registry credentials.
 IMAGE_REPO_USERNAME ?=
 IMAGE_REPO_PASSWORD ?=
@@ -27,7 +26,7 @@ IMAGE_REPO_PASSWORD ?=
 # default registry.
 IMAGE_REPO ?= ghcr.io
 # Container image namespace, usually the organization or user name.
-IMAGE_NAMESPACE ?= redhat-appstudio
+IMAGE_NAMESPACE ?= ${GITHUB_REPOSITORY_OWNER:-redhat-appstudio}
 # Container image tag.
 IMAGE_TAG ?= latest
 # Fully qualified container image name.
