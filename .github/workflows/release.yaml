@@ -20,6 +20,7 @@ jobs:
         uses: ./.github/actions/buildah
         with:
           tags: "latest,${{ github.ref }}"
+          IMAGE_REPO_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
 
       - name: GitHub Release
         env:
